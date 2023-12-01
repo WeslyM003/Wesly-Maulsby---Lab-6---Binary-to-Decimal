@@ -127,10 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Lab6.cpp" />
+    <ClCompile Include="stats.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BinaryIn.dat" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stats.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

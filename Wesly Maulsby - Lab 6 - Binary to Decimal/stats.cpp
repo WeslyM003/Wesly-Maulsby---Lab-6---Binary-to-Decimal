@@ -1,23 +1,27 @@
-/********************
-Wesly Maulsby
-Lab 6
-Binary Input
-Convert Binary input to Base 10 output.
-********************/
-
-//necessary files
+#include "stats.h"
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
-//infile
-string inputFileName = "BinaryIn.dat";
-
-int main()
+//constructor
+Stats::Stats()
 {
+}
+
+//destructor
+Stats::~Stats()
+{
+}
+
+int Stats::binaryConversion()
+{
+	//infile
+	string inputFileName = "BinaryIn.dat";
+
 	//output header
-	cout << "Binary Input                                                ||  Decimal Output   \n";
+	cout << "Binary Input                                               ||  Decimal Output   \n";
 	// 13 11 15
 	ifstream infile;
 	infile.open(inputFileName);
@@ -32,7 +36,7 @@ int main()
 	string space = " ";
 
 	infile.get(input);
-	
+
 	//reads input digit by digit for binary conversion
 	while (infile)
 	{
@@ -56,7 +60,7 @@ int main()
 			{
 				for (int i = 0; i < count; i++)
 					cout << '\b';
-				cout << "bad digit on input                                          ||\n";
+				cout << "bad digit on input                                         ||\n";
 				badDigit = true;
 				infile.ignore(256, '\n');
 				break;
@@ -66,18 +70,19 @@ int main()
 		//if number is valid then it outputs the answer
 		if (!badDigit)
 			for (int i = 0; i < spaces; i++)
+			{
 				//spaces after binary input
 				cout << "                                                           ";
-		        //should loop for the amout of times that a number was read in for a binary input, stored in "spaces"
+				//should loop for the amout of times that a number was read in for a binary input, stored in "spaces"
 				while (spaces > 0)
 				{
 					cout << "\b";
 					spaces = spaces - 1;
 				}
 				//outputs the rest of the output
-				cout << space << "||  " << base10 << endl;
-		
-		//resets variables for next input
+				cout << "||  " << base10 << endl;
+
+			}		//resets variables for next input
 		firstDigit = false;
 		badDigit = false;
 		count = 0;
